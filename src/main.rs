@@ -28,31 +28,68 @@
 
 //generating traits over structs 
 
-struct Rect<T>{
-    height:T,
-    width:T
-}
+// #[derive(Copy,Clone)]
 
-impl<T:std::ops::Mul<Output = T>+Copy> Rect<T>{
-    fn findArea(&self)->T{
-        return self.height*self.width; 
-    }
+// struct Rect<T>{
+//     height:T,
+//     width:T
+
+
+// }
+
+// impl<T:std::ops::Mul<Output = T>+Copy > Rect<T>{
+//     fn area(&self)->T{
+      
+//         return self.height *self.width;  
+// }
+// }
+
+// fn main(){                    
+//  let r1=Rect{
+//     height:30,
+//     width:20
+//  };
+
+//  let r2=Rect{
+//     height:30.00004,
+//     width:450.0030
+//  };
+
+// let r3=Rect{
+//    height:2000,
+//    width:30000
+// };
+
+
+// let dataaaaa=r3.area();
+// println!("{}",dataaaaa);
+
+//  let data=r1.area();
+//  println!("{}",data);
+
+//  let dataa=r2.area();
+//  print!("{}",dataa);
+// }
+
+
+
+
+// generics over enum
+enum Option<T> {
+   Some(T),
+   None
 }
 
 fn main(){
-     let r1=Rect{
-        height:20,
-        width:20
-     };
-     let r2=Rect{
-        height:40.09098,
-        width:87.456778
-     };
-    
-     let data=r1.findArea() ;
-     println!("{}",data);   
+   let x:std::option::Option<f64>=Some(-40.322);
+
+
+    match x = {
+        Some(30.0988) =>print!("done"),
+        None => print!("error ocuured")
+    }
+
+
 }
-
-
 
 
