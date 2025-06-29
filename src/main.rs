@@ -75,21 +75,73 @@
 
 
 // generics over enum
-enum Option<T> {
-   Some(T),
-   None
+// enum Option<T> {
+//    Some(T),
+//    None
+// }
+
+// fn main(){
+//    let x:std::option::Option<f64>=Some(-40.322);
+
+
+//     match x = {
+//         Some(30.0988) =>print!("done"),
+//         None => print!("error ocuured")
+//     }
+
+
+// }
+
+
+
+// learning traits for trait boundaries
+
+use std::string;
+
+struct Rect{
+    height:f32,
+    width:f32
+}
+
+impl Shapes for Rect{
+    fn area(&self)->f32{
+       return self.height* self.width; 
+    }
+}
+
+
+struct Circle{
+    radius:f32
+}
+impl Shapes for Circle{
+    fn area(&self)->f32{
+       return  self.radius *self.radius; 
+    }
+}
+
+trait Shapes{
+    fn area(&self)->f32;
+}
+
+
+fn area <T:Shapes>(r:T){
+   println!("{}",r.area())
 }
 
 fn main(){
-   let x:std::option::Option<f64>=Some(-40.322);
+  
+let r=Rect{
+    height:40.09,
+    width:90.45
+
+};
+let c=Circle{
+    radius:23.76
+};
+area(r);
+area(c);
 
 
-    match x = {
-        Some(30.0988) =>print!("done"),
-        None => print!("error ocuured")
-    }
-
-
+area(c);
+area(r);
 }
-
-
