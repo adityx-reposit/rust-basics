@@ -81,24 +81,49 @@
 
 
 //LIFETIME
+// struct User{
+//     username:String,
+//     password:String
+// }
+// fn main(){
+//     let st1=String::from("Adityaa");
+//     let st2=String::from("yadav");
+//     let ans ;
+//     {
+
+//         let st3=String::from("yadav");
+//          ans= longest_st(&st1,&st2,&st3);
+//          println!("{}",ans);
+//     }
+// }
+
+// fn longest_st<'a, 'b>(s1:& 'a String , s2:& 'a String, s3: & 'b String)-> &'a String{
+//     if s1.len()> s2.len() {
+//         return s1;
+//     }
+//     else{
+//         return s2;
+//     }
+// }
+
+
 
 fn main(){
-    let st1=String::from("Adityaa");
-    let st2=String::from("yadav");
-    let ans ;
+    let ans="";
+    let s1= String::from("Aditya");
     {
-
-        let st3=String::from("yadav");
-         ans= longest_st(&st1,&st2,&st3);
-         println!("{}",ans);
+        let s2= String::from("Yadav");
+        let ans= gather(&s1, &s2);
     }
+    println!("{}",ans);
 }
 
-fn longest_st<'a, 'b>(s1:& 'a String , s2:& 'a String, s3: & 'b String)-> &'a String{
-    if s1.len()> s2.len() {
-        return s1;
-    }
-    else{
-        return s2;
-    }
+
+fn gather<'a, 'b >(St1:&'a String, St2:& 'b  String)->& 'a String{
+     if St1.len() > St2.len(){
+         return St1;
+     }
+     else{
+        return St2;
+     }
 }
