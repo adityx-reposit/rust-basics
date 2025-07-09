@@ -45,20 +45,20 @@
 
 //borsh started
 
-use core::fmt;
-use std::string;
+// use core::fmt;
+// use std::string;
 
-use borsh::{error, BorshDeserialize, BorshSerialize};
+// use borsh::{error, BorshDeserialize, BorshSerialize};
 
 
-#[derive(BorshDeserialize,BorshSerialize,Clone,Debug)]
+// #[derive(BorshDeserialize,BorshSerialize,Clone,Debug)]
 
-struct User{
-    username:String,
-    password:String,
-    age:u32
+// struct User{
+//     username:String,
+//     password:String,
+//     age:u32
 
-}
+// }
 
 
 
@@ -83,14 +83,22 @@ struct User{
 //LIFETIME
 
 fn main(){
-   longest_str(String::from("Adityaaaaaa"), String::from("Yadacavsgsgsg"));
+    let st1=String::from("Adityaa");
+    let st2=String::from("yadav");
+    let ans ;
+    {
+
+        let st3=String::from("yadav");
+         ans= longest_st(&st1,&st2,&st3);
+         println!("{}",ans);
+    }
 }
 
-fn longest_str(s1:String , s2:String){
+fn longest_st<'a, 'b>(s1:& 'a String , s2:& 'a String, s3: & 'b String)-> &'a String{
     if s1.len()> s2.len() {
-        println!("longest string is {}",s1);
+        return s1;
     }
     else{
-        println!("longest string is {}",s2);
+        return s2;
     }
 }
